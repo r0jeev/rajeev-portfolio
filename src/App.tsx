@@ -464,7 +464,7 @@ function App() {
 
           <div className="stack-grid">
             {supportStack.map(([number, title, detail, icon]) => (
-              <article className="stack-card reveal" key={number}>
+            <article className="stack-card reveal" key={String(number)}>
                 <div className="stack-top">
                   <span>{number}</span>
                   <div className="stack-icon">{icon}</div>
