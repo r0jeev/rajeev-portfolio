@@ -9,12 +9,15 @@ import {
   FaLinkedinIn,
   FaWindows,
   FaNetworkWired,
-  FaServer,
   FaDesktop,
   FaGears,
   FaShieldHalved,
   FaLinux,
   FaMicrosoft,
+  FaServer,
+  FaTerminal,
+  FaCircleCheck,
+  FaWrench,
 } from "react-icons/fa6";
 import Scene3D from "./Scene3D";
 import "./App.css";
@@ -27,9 +30,8 @@ const experiences = [
     period: "SEP 2025 — PRESENT",
     company: "MEHRWERT INFOTECH PVT. LTD.",
     role: "IT SUPPORT EXECUTIVE",
-    location: "Navi Mumbai, Maharashtra",
     description:
-      "Supporting users across hardware, software, Windows and network environments, with a focus on quick diagnosis, reliable fixes and smooth day-to-day IT operations.",
+      "Supporting users across hardware, software, Windows and network environments, with a focus on diagnosis, reliable fixes and smooth day-to-day IT operations.",
     tags: ["Hardware", "Software", "Windows", "Networking", "User Support"],
     current: true,
   },
@@ -38,7 +40,6 @@ const experiences = [
     period: "MAR 2024 — SEP 2025",
     company: "BP MARINE ACADEMY",
     role: "DESKTOP SUPPORT ENGINEER",
-    location: "CBD Belapur, Navi Mumbai",
     description:
       "Handled desktop and laptop support, Windows and Ubuntu installations, Outlook setup, LAN/TCP-IP troubleshooting, backups and specialised academy IT systems.",
     tags: ["Windows", "Ubuntu", "LAN / TCP-IP", "Outlook", "CCTV"],
@@ -49,7 +50,6 @@ const experiences = [
     period: "MAR 2019 — MAY 2019",
     company: "INFIYUG TECHNOLOGIES",
     role: "WEB DEVELOPMENT INTERN",
-    location: "Thane, Maharashtra",
     description:
       "Assisted with website development and interface design, building an early foundation in HTML, CSS and web technologies.",
     tags: ["HTML", "CSS", "Web", "UI"],
@@ -61,10 +61,11 @@ const capabilities = [
   {
     number: "01",
     title: "WINDOWS",
-    subtitle: "SYSTEM ADMINISTRATION",
+    subtitle: "SYSTEM SUPPORT",
     description:
       "Windows 7, 8, 10, 11 and Server installation, configuration, troubleshooting and user support.",
     icon: <FaWindows />,
+    level: "CORE",
   },
   {
     number: "02",
@@ -73,14 +74,16 @@ const capabilities = [
     description:
       "Practical understanding of users, groups, permissions, policies and Windows domain administration.",
     icon: <FaShieldHalved />,
+    level: "KNOWLEDGE",
   },
   {
     number: "03",
     title: "NETWORK",
     subtitle: "TROUBLESHOOTING",
     description:
-      "LAN, TCP/IP, connectivity, DNS and DHCP troubleshooting with a structured diagnostic approach.",
+      "LAN, TCP/IP, connectivity, DNS and DHCP troubleshooting using a structured diagnostic approach.",
     icon: <FaNetworkWired />,
+    level: "CORE",
   },
   {
     number: "04",
@@ -89,14 +92,16 @@ const capabilities = [
     description:
       "Microsoft Office, Outlook setup, account assistance, application troubleshooting and user support.",
     icon: <FaMicrosoft />,
+    level: "CORE",
   },
   {
     number: "05",
     title: "HARDWARE",
-    subtitle: "DESKTOP SUPPORT",
+    subtitle: "ENDPOINT SUPPORT",
     description:
       "PC and laptop assembly, peripherals, maintenance, installation and hardware-level troubleshooting.",
     icon: <FaDesktop />,
+    level: "CORE",
   },
   {
     number: "06",
@@ -105,7 +110,25 @@ const capabilities = [
     description:
       "Installation and basic troubleshooting experience with Ubuntu Linux environments.",
     icon: <FaLinux />,
+    level: "CORE",
   },
+];
+
+const supportStack = [
+  ["01", "ENDPOINTS", "PCs / LAPTOPS / PERIPHERALS", <FaDesktop />],
+  ["02", "WINDOWS", "INSTALL / CONFIGURE / TROUBLESHOOT", <FaWindows />],
+  ["03", "IDENTITY", "USERS / GROUPS / ACCESS", <FaShieldHalved />],
+  ["04", "NETWORK", "LAN / TCP-IP / DNS / DHCP", <FaNetworkWired />],
+  ["05", "APPLICATIONS", "OFFICE / OUTLOOK / USER APPS", <FaMicrosoft />],
+  ["06", "INFRASTRUCTURE", "SERVER / DEVICES / IT OPERATIONS", <FaServer />],
+];
+
+const troubleshootingSteps = [
+  ["01", "IDENTIFY", "Understand the user issue and reproduce the problem."],
+  ["02", "DIAGNOSE", "Separate hardware, software, network and access causes."],
+  ["03", "RESOLVE", "Apply the safest practical fix and restore service."],
+  ["04", "VERIFY", "Test the result with the user and confirm stability."],
+  ["05", "DOCUMENT", "Capture the useful fix so the next incident is faster."],
 ];
 
 const labProjects = [
@@ -117,6 +140,7 @@ const labProjects = [
     description:
       "A practical lab for understanding Windows domain administration, user management and access control.",
     icon: <FaShieldHalved />,
+    status: "LAB / LEARNING",
   },
   {
     number: "02",
@@ -126,6 +150,7 @@ const labProjects = [
     description:
       "A structured endpoint-to-network workflow for finding connectivity and configuration problems.",
     icon: <FaNetworkWired />,
+    status: "PRACTICAL",
   },
   {
     number: "03",
@@ -135,7 +160,26 @@ const labProjects = [
     description:
       "A repeatable workflow covering system setup, configuration, testing and troubleshooting.",
     icon: <FaGears />,
+    status: "PRACTICAL",
   },
+  {
+    number: "04",
+    title: "POWERSHELL",
+    label: "AUTOMATION DIRECTION",
+    flow: ["COMMAND", "SCRIPT", "TEST", "AUTOMATE"],
+    description:
+      "A learning track focused on using PowerShell to make common Windows support tasks faster and more repeatable.",
+    icon: <FaTerminal />,
+    status: "LEARNING",
+  },
+];
+
+const learningPath = [
+  ["01", "GROUP POLICY", "Building stronger Windows administration depth."],
+  ["02", "POWERSHELL", "Automating repetitive support tasks."],
+  ["03", "ENTRA ID", "Expanding identity and cloud administration knowledge."],
+  ["04", "INTUNE", "Learning modern endpoint management concepts."],
+  ["05", "ITSM", "Improving incident, change and documentation workflows."],
 ];
 
 function App() {
@@ -202,6 +246,25 @@ function App() {
           }
         );
       });
+
+      gsap.utils.toArray<HTMLElement>(".stack-card").forEach((card, index) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 25 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.65,
+            delay: index * 0.04,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 90%",
+              once: true,
+            },
+          }
+        );
+      });
     }, rootRef);
 
     return () => ctx.revert();
@@ -229,7 +292,6 @@ function App() {
       </header>
 
       <main id="top">
-        {/* HERO */}
         <section className="hero-section premium-hero">
           <div className="hero-grid">
             <div className="hero-copy">
@@ -254,19 +316,31 @@ function App() {
 
               <p className="hero-element hero-intro">
                 I solve technical problems, support users and keep workplace
-                systems running reliably.
+                systems running reliably across endpoints, Windows and networks.
               </p>
 
               <div className="hero-element hero-actions">
                 <a href="#experience" className="primary-button">
-                  EXPLORE MY EXPERIENCE
-                  <FaArrowUpRightFromSquare />
+                  EXPLORE EXPERIENCE <FaArrowUpRightFromSquare />
                 </a>
-
                 <a href="#contact" className="secondary-button">
-                  GET IN TOUCH
-                  <FaArrowUpRightFromSquare />
+                  GET IN TOUCH <FaArrowUpRightFromSquare />
                 </a>
+              </div>
+
+              <div className="hero-proof hero-element">
+                <div>
+                  <strong>02+</strong>
+                  <span>YEARS IT SUPPORT</span>
+                </div>
+                <div>
+                  <strong>ENDPOINT</strong>
+                  <span>+ NETWORK</span>
+                </div>
+                <div>
+                  <strong>WINDOWS</strong>
+                  <span>CORE FOCUS</span>
+                </div>
               </div>
             </div>
 
@@ -293,52 +367,31 @@ function App() {
           </div>
 
           <div className="hero-bottom">
-            <span>01 — 05</span>
-
+            <span>01 — 08</span>
             <span className="scroll-indicator">
               SCROLL <span />
               <FaArrowDown />
             </span>
-
-            <span>NAVI MUMBAI / INDIA</span>
+            <span>IT OPERATIONS / SYSTEMS</span>
           </div>
         </section>
 
-        {/* SYSTEM BAR */}
         <div className="system-bar">
-          <div>
-            <span className="mini-dot" />
-            WINDOWS
-          </div>
-
-          <div>
-            <span className="mini-dot" />
-            ACTIVE DIRECTORY
-          </div>
-
-          <div>
-            <span className="mini-dot" />
-            MICROSOFT 365
-          </div>
-
-          <div>
-            <span className="mini-dot" />
-            TCP / IP
-          </div>
-
-          <div>
-            <span className="mini-dot" />
-            HARDWARE
-          </div>
+          {["WINDOWS", "ACTIVE DIRECTORY", "MICROSOFT 365", "TCP / IP", "HARDWARE"].map(
+            (item) => (
+              <div key={item}>
+                <span className="mini-dot" />
+                {item}
+              </div>
+            )
+          )}
         </div>
 
-        {/* ABOUT */}
         <section className="about-section section-block" id="about">
           <div className="section-number">02</div>
 
           <div className="section-heading reveal">
             <span className="eyebrow">ABOUT ME</span>
-
             <h2>
               I KEEP
               <br />
@@ -351,58 +404,84 @@ function App() {
           <div className="about-layout">
             <div className="about-main reveal">
               <p className="about-lead">
-                Dedicated IT Support professional with hands-on experience in
-                desktop support, Windows administration, system troubleshooting,
-                hardware, software and network support.
+                IT Support professional focused on desktop support, Windows
+                administration, system troubleshooting, hardware, software and
+                network support.
               </p>
-
               <p className="about-detail">
-                I focus on solving problems systematically — from diagnosing
-                hardware and software issues to supporting users, configuring
-                Windows systems, troubleshooting networks and maintaining
-                reliable day-to-day IT operations.
+                My approach is simple: understand the issue, isolate the cause,
+                restore service, verify the result and leave a useful trail for
+                the next person. I enjoy the practical side of IT where users,
+                devices and systems all need to work together.
               </p>
             </div>
 
             <div className="system-panel reveal">
               <div className="panel-header">
                 <span>FIELD PROFILE</span>
-
                 <span className="panel-live">
                   <i /> LIVE
                 </span>
               </div>
-
               <div className="profile-row">
                 <span>ROLE</span>
                 <strong>IT SUPPORT ENGINEER</strong>
               </div>
-
               <div className="profile-row">
                 <span>FOCUS</span>
                 <strong>ENDPOINT + NETWORK</strong>
               </div>
-
               <div className="profile-row">
                 <span>ENVIRONMENT</span>
                 <strong>WINDOWS / LINUX</strong>
               </div>
-
               <div className="profile-row">
-                <span>LOCATION</span>
-                <strong>NAVI MUMBAI</strong>
+                <span>METHOD</span>
+                <strong>DIAGNOSE → RESOLVE</strong>
               </div>
             </div>
           </div>
         </section>
 
-        {/* EXPERIENCE */}
-        <section className="experience-section section-block" id="experience">
+        <section className="stack-section section-block">
           <div className="section-number">03</div>
+
+          <div className="section-heading compact-heading reveal">
+            <span className="eyebrow">IT OPERATIONS</span>
+            <h2>
+              THE SUPPORT
+              <br />
+              <em>STACK.</em>
+            </h2>
+          </div>
+
+          <div className="stack-intro reveal">
+            <p>
+              The practical layers I think through when supporting a user,
+              endpoint or workplace system.
+            </p>
+          </div>
+
+          <div className="stack-grid">
+            {supportStack.map(([number, title, detail, icon]) => (
+              <article className="stack-card reveal" key={number}>
+                <div className="stack-top">
+                  <span>{number}</span>
+                  <div className="stack-icon">{icon}</div>
+                </div>
+                <h3>{title}</h3>
+                <p>{detail}</p>
+                <span className="stack-arrow">↗</span>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="experience-section section-block" id="experience">
+          <div className="section-number">04</div>
 
           <div className="section-heading reveal">
             <span className="eyebrow">EXPERIENCE</span>
-
             <h2>
               THE
               <br />
@@ -412,19 +491,16 @@ function App() {
 
           <div className="experience-intro reveal">
             <span>CAREER TIMELINE</span>
-
             <p>
-              A journey of learning, troubleshooting and growing through
-              real-world IT support environments.
+              Learning, troubleshooting and growing through real-world support
+              environments.
             </p>
           </div>
 
           <div className="experience-list">
             {experiences.map((item) => (
               <article
-                className={`experience-card reveal ${
-                  item.current ? "is-current" : ""
-                }`}
+                className={`experience-card reveal ${item.current ? "is-current" : ""}`}
                 key={item.number}
               >
                 <div className="experience-meta">
@@ -436,19 +512,11 @@ function App() {
                   <div className="current-marker">
                     {item.current ? "CURRENT" : "EXPERIENCE"}
                   </div>
-
                   <h3>{item.company}</h3>
-
                   <h4>{item.role}</h4>
-
-                  <p className="experience-location">
-                    {item.location}
-                  </p>
                 </div>
 
-                <p className="experience-description">
-                  {item.description}
-                </p>
+                <p className="experience-description">{item.description}</p>
 
                 <div className="experience-tags">
                   {item.tags.map((tag) => (
@@ -460,13 +528,11 @@ function App() {
           </div>
         </section>
 
-        {/* SKILLS */}
         <section className="skills-section section-block" id="skills">
-          <div className="section-number">04</div>
+          <div className="section-number">05</div>
 
           <div className="section-heading reveal">
             <span className="eyebrow">SKILLS & TOOLS</span>
-
             <h2>
               BUILT FOR
               <br />
@@ -476,38 +542,60 @@ function App() {
 
           <div className="capabilities-grid">
             {capabilities.map((item) => (
-              <article
-                className="capability-card reveal"
-                key={item.number}
-              >
+              <article className="capability-card reveal" key={item.number}>
                 <div className="capability-top">
                   <span>{item.number}</span>
-
-                  <div className="capability-icon">
-                    {item.icon}
-                  </div>
+                  <div className="capability-icon">{item.icon}</div>
                 </div>
 
-                <div>
+                <div className="capability-heading">
+                  <div className="skill-level">{item.level}</div>
                   <h3>{item.title}</h3>
                   <h4>{item.subtitle}</h4>
                 </div>
 
                 <p>{item.description}</p>
-
                 <span className="capability-line" />
               </article>
             ))}
           </div>
         </section>
 
-        {/* LABS */}
+        <section className="method-section section-block">
+          <div className="method-panel reveal">
+            <div className="method-heading">
+              <span className="eyebrow">TROUBLESHOOTING METHOD</span>
+              <h2>
+                FROM ISSUE
+                <br />
+                <em>TO RESOLUTION.</em>
+              </h2>
+              <p>
+                A repeatable support mindset that keeps troubleshooting
+                structured instead of random.
+              </p>
+            </div>
+
+            <div className="method-list">
+              {troubleshootingSteps.map(([number, title, description]) => (
+                <div className="method-row" key={number}>
+                  <span>{number}</span>
+                  <div>
+                    <strong>{title}</strong>
+                    <p>{description}</p>
+                  </div>
+                  <FaCircleCheck />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="labs-section section-block" id="labs">
-          <div className="section-number">05</div>
+          <div className="section-number">06</div>
 
           <div className="section-heading reveal">
             <span className="eyebrow">PRACTICAL LABS</span>
-
             <h2>
               I LEARN BY
               <br />
@@ -517,8 +605,9 @@ function App() {
 
           <div className="labs-intro reveal">
             <p>
-              Practical environments and troubleshooting workflows that
-              represent the systems-thinking approach I bring into IT support.
+              Hands-on environments and repeatable workflows used to deepen
+              systems knowledge without pretending lab work is production
+              experience.
             </p>
           </div>
 
@@ -527,42 +616,66 @@ function App() {
               <article className="lab-card reveal" key={project.number}>
                 <div className="lab-top">
                   <span>{project.number}</span>
-
-                  <div className="lab-icon">
-                    {project.icon}
-                  </div>
+                  <div className="lab-icon">{project.icon}</div>
                 </div>
 
-                <span className="lab-label">
-                  {project.label}
-                </span>
-
+                <span className="lab-label">{project.label}</span>
                 <h3>{project.title}</h3>
 
                 <div className="lab-flow">
                   {project.flow.map((step, index) => (
                     <div key={step}>
                       <span>{step}</span>
-
-                      {index < project.flow.length - 1 && (
-                        <i>→</i>
-                      )}
+                      {index < project.flow.length - 1 && <i>→</i>}
                     </div>
                   ))}
                 </div>
 
                 <p>{project.description}</p>
+
+                <div className="lab-status">
+                  <span />
+                  {project.status}
+                </div>
               </article>
             ))}
           </div>
         </section>
 
-        {/* RESUME CTA */}
+        <section className="learning-section section-block">
+          <div className="learning-layout">
+            <div className="learning-copy reveal">
+              <span className="eyebrow">NEXT LAYER</span>
+              <h2>
+                BUILDING
+                <br />
+                <em>DEPTH.</em>
+              </h2>
+              <p>
+                Areas I am actively building toward as I grow from support into
+                deeper systems and administration work.
+              </p>
+            </div>
+
+            <div className="learning-list">
+              {learningPath.map(([number, title, description]) => (
+                <div className="learning-row reveal" key={number}>
+                  <span>{number}</span>
+                  <div>
+                    <strong>{title}</strong>
+                    <p>{description}</p>
+                  </div>
+                  <FaArrowUpRightFromSquare />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="resume-section">
           <div className="resume-grid">
             <div className="resume-copy reveal">
               <span className="eyebrow">PROFILE READY</span>
-
               <h2>
                 LET'S BUILD
                 <br />
@@ -571,41 +684,36 @@ function App() {
             </div>
 
             <div className="resume-action reveal">
+              <div className="resume-signal">
+                <FaWrench />
+                <span>IT SUPPORT / SYSTEMS</span>
+              </div>
               <p>
-                Looking for an IT Support or System Administration
-                opportunity? Let's connect and discuss how I can contribute.
+                Looking for an IT Support, Desktop Support or System
+                Administration opportunity? Let's connect and discuss how I can
+                contribute.
               </p>
-
-              <a
-                href="#contact"
-                className="primary-button large-button"
-              >
-                CONNECT WITH ME
-                <FaArrowUpRightFromSquare />
+              <a href="#contact" className="primary-button large-button">
+                CONNECT WITH ME <FaArrowUpRightFromSquare />
               </a>
             </div>
           </div>
         </section>
 
-        {/* CONTACT */}
-        <section
-          className="contact-section section-block"
-          id="contact"
-        >
-          <div className="section-number">06</div>
+        <section className="contact-section section-block" id="contact">
+          <div className="section-number">07</div>
 
           <div className="contact-heading reveal">
             <span className="eyebrow">CONTACT</span>
-
             <h2>
               LET'S
               <br />
               <em>CONNECT.</em>
             </h2>
-
             <p>
-              Open to IT Support and System Administration opportunities,
-              technical discussions and professional collaboration.
+              Open to IT Support, Desktop Support and System Administration
+              opportunities, technical discussions and professional
+              collaboration.
             </p>
           </div>
 
@@ -617,28 +725,21 @@ function App() {
               <div className="contact-icon">
                 <FaEnvelope />
               </div>
-
               <div>
                 <span>EMAIL</span>
                 <strong>rajivssingh810@gmail.com</strong>
               </div>
-
               <FaArrowUpRightFromSquare className="contact-arrow" />
             </a>
 
-            <a
-              className="contact-card reveal"
-              href="tel:+919324910710"
-            >
+            <a className="contact-card reveal" href="tel:+919324910710">
               <div className="contact-icon">
                 <FaPhone />
               </div>
-
               <div>
                 <span>PHONE</span>
                 <strong>+91 9324910710</strong>
               </div>
-
               <FaArrowUpRightFromSquare className="contact-arrow" />
             </a>
 
@@ -651,12 +752,10 @@ function App() {
               <div className="contact-icon">
                 <FaLinkedinIn />
               </div>
-
               <div>
                 <span>LINKEDIN</span>
                 <strong>/in/rajeev-singh-06915137a</strong>
               </div>
-
               <FaArrowUpRightFromSquare className="contact-arrow" />
             </a>
 
@@ -664,7 +763,6 @@ function App() {
               <div className="contact-icon status-icon">
                 <span />
               </div>
-
               <div>
                 <span>STATUS</span>
                 <strong>OPEN FOR OPPORTUNITIES</strong>
@@ -679,9 +777,8 @@ function App() {
           <strong>RAJEEV SINGH</strong>
           <span>IT SUPPORT ENGINEER</span>
         </div>
-
         <div>
-          <span>NAVI MUMBAI / INDIA</span>
+          <span>IT OPERATIONS / SYSTEMS</span>
           <span>© {new Date().getFullYear()}</span>
         </div>
       </footer>
