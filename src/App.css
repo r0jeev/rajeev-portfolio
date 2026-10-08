@@ -1438,3 +1438,572 @@ button, a { -webkit-tap-highlight-color: transparent; }
     transition-duration: .01ms !important;
   }
 }
+/* =========================================================
+   RAJEEV PORTFOLIO — OBSIDIAN AMBER PREMIUM THEME
+   FINAL OVERRIDE
+   ========================================================= */
+
+:root {
+  --bg: #080808 !important;
+  --bg-soft: #0f0f0f !important;
+  --panel: #131313 !important;
+  --panel-2: #171717 !important;
+
+  --line: rgba(255, 176, 0, 0.16) !important;
+  --line-strong: rgba(255, 176, 0, 0.38) !important;
+
+  --text: #f5f3ee !important;
+  --muted: #96918a !important;
+  --dim: #625e57 !important;
+
+  --purple: #ffb000 !important;
+  --purple-light: #ffd166 !important;
+
+  --cyan: #ffb000 !important;
+  --green: #65f6a6 !important;
+  --pink: #ff8a3d !important;
+}
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+  background: #080808 !important;
+}
+
+body {
+  background: #080808 !important;
+  color: #f5f3ee !important;
+}
+
+.portfolio-shell {
+  background:
+    radial-gradient(
+      circle at 75% 8%,
+      rgba(255, 176, 0, 0.045),
+      transparent 28%
+    ),
+    #080808 !important;
+
+  color: #f5f3ee !important;
+}
+
+/* subtle premium grid */
+.portfolio-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 176, 0, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 176, 0, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 70px 70px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.site-header {
+  background: rgba(8, 8, 8, 0.88) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.brand-mark {
+  border-color: rgba(255, 176, 0, 0.45) !important;
+  background: rgba(255, 176, 0, 0.025) !important;
+}
+
+.brand-mark span:last-child {
+  color: #ffb000 !important;
+}
+
+.header-contact {
+  border-color: rgba(255, 176, 0, 0.42) !important;
+  color: #ffd166 !important;
+}
+
+.header-contact:hover {
+  background: #ffb000 !important;
+  color: #080808 !important;
+}
+
+/* =========================================================
+   TEXT / LABELS
+   ========================================================= */
+
+.eyebrow,
+.hero-role,
+.experience-meta span:first-child,
+.experience-company h4,
+.capability-card h4 {
+  color: #ffb000 !important;
+}
+
+.eyebrow::before,
+.section-label::before,
+.capability-line {
+  background: #ffb000 !important;
+}
+
+.section-heading em,
+.section-title em {
+  color: #ffd166 !important;
+}
+
+.outline-word {
+  -webkit-text-stroke: 2px rgba(255, 176, 0, 0.7) !important;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero-section {
+  background:
+    radial-gradient(
+      circle at 70% 40%,
+      rgba(255, 176, 0, 0.045),
+      transparent 32%
+    ),
+    transparent !important;
+}
+
+.availability {
+  color: #96918a !important;
+}
+
+.status-dot {
+  background: #65f6a6 !important;
+  box-shadow: 0 0 14px rgba(101, 246, 166, 0.55) !important;
+}
+
+.hero-index {
+  color: #625e57 !important;
+}
+
+.hero-index span {
+  color: #ffb000 !important;
+}
+
+.hero-title {
+  color: #f5f3ee !important;
+}
+
+.hero-role {
+  color: #ffb000 !important;
+}
+
+.hero-intro {
+  color: #96918a !important;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.primary-button {
+  background: #ffb000 !important;
+  color: #080808 !important;
+  border-color: #ffb000 !important;
+}
+
+.primary-button:hover {
+  background: #ffd166 !important;
+  border-color: #ffd166 !important;
+  color: #080808 !important;
+  box-shadow: 0 12px 35px rgba(255, 176, 0, 0.22) !important;
+}
+
+.secondary-button {
+  border-color: rgba(255, 176, 0, 0.3) !important;
+  color: #f5f3ee !important;
+}
+
+.secondary-button:hover {
+  border-color: #ffb000 !important;
+  color: #ffb000 !important;
+  background: rgba(255, 176, 0, 0.045) !important;
+}
+
+/* =========================================================
+   HERO FLOATING CARDS
+   ========================================================= */
+
+.hero-floating-card {
+  background: rgba(15, 15, 15, 0.88) !important;
+  border-color: rgba(255, 176, 0, 0.24) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.32) !important;
+}
+
+.hero-floating-card strong {
+  color: #f5f3ee !important;
+}
+
+.hero-floating-card span {
+  color: #96918a !important;
+}
+
+/* =========================================================
+   SYSTEM BAR
+   ========================================================= */
+
+.system-bar {
+  border-color: rgba(255, 176, 0, 0.12) !important;
+  background: #0c0c0c !important;
+}
+
+.system-bar span {
+  color: #96918a !important;
+}
+
+.system-bar strong {
+  color: #ffb000 !important;
+}
+
+/* =========================================================
+   EXPERIENCE
+   ========================================================= */
+
+.experience-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 20, 20, 0.96),
+      rgba(10, 10, 10, 0.98)
+    ) !important;
+
+  border-color: rgba(255, 176, 0, 0.15) !important;
+}
+
+.experience-card:hover {
+  border-color: rgba(255, 176, 0, 0.42) !important;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3) !important;
+}
+
+.experience-card.is-current {
+  box-shadow: inset 3px 0 #65f6a6 !important;
+}
+
+.is-current .current-marker {
+  color: #65f6a6 !important;
+}
+
+.experience-company h3 {
+  color: #f5f3ee !important;
+}
+
+.experience-company h4 {
+  color: #ffb000 !important;
+}
+
+.experience-location,
+.experience-description {
+  color: #77736c !important;
+}
+
+.experience-tags span {
+  border-color: rgba(255, 176, 0, 0.16) !important;
+  color: #96918a !important;
+}
+
+/* =========================================================
+   SKILLS
+   ========================================================= */
+
+.capability-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 20, 20, 0.96),
+      rgba(8, 8, 8, 0.98)
+    ) !important;
+
+  border-color: rgba(255, 176, 0, 0.16) !important;
+}
+
+.capability-card:hover {
+  border-color: rgba(255, 176, 0, 0.45) !important;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28) !important;
+}
+
+.capability-icon,
+.lab-icon {
+  border-color: rgba(255, 176, 0, 0.3) !important;
+  color: #ffb000 !important;
+  background: rgba(255, 176, 0, 0.045) !important;
+}
+
+.capability-card h3 {
+  color: #f5f3ee !important;
+}
+
+.capability-card h4 {
+  color: #ffb000 !important;
+}
+
+.capability-card p {
+  color: #77736c !important;
+}
+
+/* =========================================================
+   LABS / WORK
+   ========================================================= */
+
+.work-card,
+.lab-card {
+  border-color: rgba(255, 176, 0, 0.16) !important;
+  background: #111111 !important;
+}
+
+.work-card:hover,
+.lab-card:hover {
+  border-color: rgba(255, 176, 0, 0.42) !important;
+}
+
+.work-arrow {
+  color: #ffb000 !important;
+}
+
+/* =========================================================
+   CONTACT — DESKTOP WIDTH FIX
+   ========================================================= */
+
+.contact-section {
+  width: min(1380px, calc(100% - 72px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 150px 0 120px !important;
+
+  display: block !important;
+}
+
+.contact-layout {
+  width: 100% !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(320px, 0.72fr) minmax(620px, 1.28fr) !important;
+
+  gap: 70px !important;
+  align-items: start !important;
+}
+
+.contact-heading {
+  width: 100% !important;
+  position: sticky !important;
+  top: 120px !important;
+}
+
+.contact-heading p {
+  max-width: 520px !important;
+  color: #96918a !important;
+}
+
+/* IMPORTANT: fixes tiny cards */
+.contact-grid {
+  width: 100% !important;
+  max-width: none !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+
+  gap: 14px !important;
+  margin-top: 0 !important;
+}
+
+/* Contact cards */
+.contact-card {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 145px !important;
+
+  padding: 24px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 18px !important;
+
+  background:
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(255, 176, 0, 0.07),
+      transparent 48%
+    ),
+    #111111 !important;
+
+  border: 1px solid rgba(255, 176, 0, 0.17) !important;
+  border-radius: 14px !important;
+
+  overflow: hidden !important;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px) !important;
+  border-color: rgba(255, 176, 0, 0.48) !important;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.32) !important;
+}
+
+.contact-card > div:not(.contact-icon) {
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+}
+
+.contact-icon {
+  flex: 0 0 56px !important;
+  width: 56px !important;
+  height: 56px !important;
+
+  border-color: rgba(255, 176, 0, 0.3) !important;
+  color: #ffb000 !important;
+  background: rgba(255, 176, 0, 0.045) !important;
+}
+
+.contact-card small,
+.contact-card > div > span {
+  color: #625e57 !important;
+}
+
+.contact-card strong {
+  display: block !important;
+
+  max-width: 100% !important;
+
+  color: #f5f3ee !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.contact-card .external,
+.contact-arrow {
+  color: #625e57 !important;
+  flex-shrink: 0 !important;
+}
+
+.contact-card:hover .external,
+.contact-card:hover .contact-arrow {
+  color: #ffb000 !important;
+}
+
+/* status */
+.status-card {
+  border-color: rgba(101, 246, 166, 0.25) !important;
+}
+
+.status-card .contact-icon,
+.status-icon {
+  border-color: rgba(101, 246, 166, 0.28) !important;
+  color: #65f6a6 !important;
+}
+
+.status-card strong {
+  color: #65f6a6 !important;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  border-top: 1px solid rgba(255, 176, 0, 0.12) !important;
+  background: #080808 !important;
+}
+
+.site-footer strong {
+  color: #f5f3ee !important;
+}
+
+.site-footer span {
+  color: #625e57 !important;
+}
+
+/* =========================================================
+   MOBILE — KEEP CURRENT WORKING LAYOUT
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .contact-section {
+    width: calc(100% - 40px) !important;
+    padding: 110px 0 110px !important;
+  }
+
+  .contact-layout {
+    display: block !important;
+  }
+
+  .contact-heading {
+    position: static !important;
+  }
+
+  .contact-grid {
+    margin-top: 50px !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-card {
+    min-height: 120px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  .contact-section {
+    width: calc(100% - 32px) !important;
+    padding: 95px 0 105px !important;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin-top: 45px !important;
+  }
+
+  .contact-card {
+    min-height: 112px !important;
+    padding: 18px !important;
+    gap: 14px !important;
+  }
+
+  .contact-icon {
+    flex-basis: 48px !important;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .contact-card strong {
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .contact-section {
+    width: calc(100% - 28px) !important;
+  }
+
+  .contact-card strong {
+    font-size: 11px !important;
+  }
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: #ffb000 !important;
+  color: #080808 !important;
+}
